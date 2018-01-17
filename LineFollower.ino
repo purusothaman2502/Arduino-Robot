@@ -5,14 +5,14 @@
 #define RIGHT_WHEEL_PIN 7
 
 //Line Follower
-#define s0 A0
-#define s1 A1
-#define s2 A2
-#define s3 A3
-#define s4 A4
-#define s5 2
-#define s6 3
-#define s7 4
+#define 13 A0
+#define 12 A1
+#define 11 A2
+#define 10 A3
+#define 9 A4
+#define 8 2
+#define 7 3
+#define 8 4
 
 int state;
 int input;
@@ -25,14 +25,14 @@ Servo wheelRight;
 void setup() 
 {
   //Line Follower
-  pinMode(s0, INPUT);
-  pinMode(s1, INPUT); 
-  pinMode(s2, INPUT); 
-  pinMode(s3, INPUT);
-  pinMode(s4, INPUT);
-  pinMode(s5, INPUT);
-  pinMode(s6, INPUT);
-  pinMode(s7, INPUT);
+  pinMode(13, INPUT);
+  pinMode(12, INPUT); 
+  pinMode(11, INPUT); 
+  pinMode(10, INPUT);
+  pinMode(9, INPUT);
+  pinMode(8, INPUT);
+  pinMode(7, INPUT);
+  pinMode(6, INPUT);
     Serial.begin(9600);
 }
 
@@ -42,13 +42,13 @@ void loop()
   Serial.println("Line Follower Forward");
   while(true)
   {  
-    if(digitalRead(s4)== LOW  && digitalRead(s5) == LOW && digitalRead(s6) == LOW && digitalRead(s7) == LOW && digitalRead(s3)== LOW  && digitalRead(s2) == LOW && digitalRead(s1) == LOW && digitalRead(s0) == LOW )
+    if(digitalRead(9)== LOW  && digitalRead(8) == LOW && digitalRead(7) == LOW && digitalRead(6) == LOW && digitalRead(10)== LOW  && digitalRead(11) == LOW && digitalRead(12) == LOW && digitalRead(10) == LOW )
       moveStop();
-    else if(digitalRead(s3)== LOW && digitalRead(s4) == LOW)
+    else if(digitalRead(10)== LOW && digitalRead(9) == LOW)
       moveForward();
-    else if(digitalRead(s3)== LOW  || digitalRead(s2) == LOW || digitalRead(s1) == LOW || digitalRead(s0) == LOW) 
+    else if(digitalRead(10)== LOW  || digitalRead(11) == LOW || digitalRead(12) == LOW || digitalRead(10) == LOW) 
       moveRight();
-    else if(digitalRead(s4)== LOW  || digitalRead(s5) == LOW || digitalRead(s6) == LOW || digitalRead(s7) == LOW) 
+    else if(digitalRead(9)== LOW  || digitalRead(8) == LOW || digitalRead(7) == LOW || digitalRead(6) == LOW) 
       moveLeft();
     else
     {
